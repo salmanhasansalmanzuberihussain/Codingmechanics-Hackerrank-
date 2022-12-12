@@ -56,3 +56,21 @@ function timeConversion(s) {
     return s.join(':');
   }
 }
+
+//Maria plays college basketball and wants to go pro
+function breakingRecords(scores) {
+  let min = scores[0];
+  let max = scores[0];
+  let mini = 0;
+  let maxi = 0;
+  for (let i = 1; i < scores.length; i++) {
+    if (scores[i] > max) {
+      max = scores[i];
+      maxi++;
+    } else if (min > scores[i]) {
+      min = scores[i];
+      mini++;
+    }
+  }
+  return [maxi, mini];
+}
