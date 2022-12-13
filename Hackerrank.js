@@ -74,3 +74,18 @@ function breakingRecords(scores) {
   }
   return [maxi, mini];
 }
+
+//Socks Merchant
+function sockMerchant(n, ar) {
+  let pairs = 0; //incrementing
+  let map = {}; //map an object were storing the data in an object
+  for (let val of ar) {
+    //for(let val of ar) //val is basically the 1,2,1,2,1
+    map[val] = (map[val] || 0) + 1; //add the val and the map[val] ||0 +1 thats just a syntax thing as i looked it up
+    if (map[val] % 2 === 0) {
+      //if map[val %2===0] what we want to do is basically increment the pairs, pairs++
+      pairs++;
+    }
+  }
+  return pairs;
+}
