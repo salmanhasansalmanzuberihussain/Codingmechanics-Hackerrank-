@@ -89,3 +89,33 @@ function sockMerchant(n, ar) {
   }
   return pairs;
 }
+
+//Migratory Birds //version 1
+function migratoryBirds(arr) {
+  let max = 0;
+  let maxarr = 6;
+  let result = new Array(6).fill(0);
+  for (let nums of arr) {
+    result[nums]++;
+    if (result[nums] > max) {
+      max = result[nums];
+      maxarr = nums;
+    }
+  }
+  return maxarr;
+}
+
+//Version 2
+function migratoryBirds(arr) {
+  let max = 0;
+  let maxarr = 6;
+  let newarray = {};
+  for (let val of arr) {
+    newarray[val] = (newarray[val] || 0) + 1;
+    if (newarray[val] > max) {
+      max = newarray[val];
+      maxarr = val;
+    }
+  }
+  return maxarr;
+}
