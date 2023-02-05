@@ -88,6 +88,71 @@ function divisibleSumPairs(n, k, ar) {
   return pairs;
 }
 
+//Spase Arrays [Solution 1]
+function matchingStrings(strings, queries) {
+  let storage = {};
+  for (let val of strings) {
+    storage[val] = (storage[val] || 0) + 1;
+  }
+
+  return queries.map((query) => storage[query] || 0);
+}
+
+//Lonely Integer [Solution 1]
+function lonelyinteger(a) {
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result ^= a[i];
+  }
+  return result;
+}
+
+//Lonely Integer [Solution 2]
+function lonelyinteger(a) {
+  let result = {};
+  for (let val of a) {
+    result[val] = (result[val] || 0) + 1;
+  }
+
+  for (let key in result) {
+    if (result[key] === 1) {
+      return key;
+    }
+  }
+}
+
+//Grading students [Solution 1]
+function gradingStudents(grades) {
+  let result = [];
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 38) {
+      result.push(grades[i]);
+    } else {
+      if ((grades[i] + 1) % 5 == 0) {
+        result.push(grades[i] + 1);
+      } else if ((grades[i] + 2) % 5 == 0) {
+        result.push(grades[i] + 2);
+      } else {
+        result.push(grades[i]);
+      }
+    }
+  }
+  return result;
+}
+
+//Grading students [Solution 2]
+function gradingStudents(grades) {
+  let result = [];
+  for (let i = 0; i < grades.length; i++) {
+    if (grades[i] < 38 || grades[i] % 5 < 3) {
+      result.push(grades[i]);
+    } else {
+      result.push(grades[i] + 5 - (grades[i] % 5));
+    }
+  }
+  return result;
+}
+
 //Socks Merchant
 function sockMerchant(n, ar) {
   let pairs = 0; //incrementing
@@ -108,4 +173,22 @@ function migratoryBirds(arr) {
   let newarr = new Array(6).fill(0);
   for (const val of arr) newarr[val]++;
   return newarr.indexOf(Math.max(...newarr));
+}
+
+//Maxiumum triangle
+function maximumPerimeterTriangle(sticks) {
+  sticks.sort((a, b) => b - a);
+  for (let i = 0; i < sticks.length - 2; i++) {
+    if (sticks[i] < sticks[i + 1] + sticks[i + 2]) {
+      return [sticks[i + 2], sticks[i + 1], sticks[i]];
+    }
+  }
+  return [-1];
+}
+
+function pageCount(n, p) {
+  var frontflip = Math.floor(p / 2);
+  var backflip = Math.floor(n / 2 - frontflip);
+  var result = Math.min(frontflip, backflip);
+  return result;
 }
