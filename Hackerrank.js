@@ -153,6 +153,23 @@ function gradingStudents(grades) {
   return result;
 }
 
+//Flipping bits
+function flippingBits(n) {
+  return 2 ** 32 - n - 1;
+}
+
+//diagonal difference
+function diagonalDifference(arr) {
+  let n = arr.length;
+  let leftsum = 0;
+  let rightsum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    leftsum += arr[i][i];
+    rightsum += arr[i][n - 1 - i];
+  }
+  return Math.abs(leftsum - rightsum);
+}
+
 //Socks Merchant
 function sockMerchant(n, ar) {
   let pairs = 0; //incrementing
