@@ -170,6 +170,15 @@ function diagonalDifference(arr) {
   return Math.abs(leftsum - rightsum);
 }
 
+//Counting sort 1
+function countingSort(arr) {
+  let stack;
+  for (let val of arr) {
+    stack[val]++;
+  }
+  return stack;
+}
+
 //Socks Merchant
 function sockMerchant(n, ar) {
   let pairs = 0; //incrementing
