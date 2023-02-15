@@ -179,6 +179,34 @@ function countingSort(arr) {
   return stack;
 }
 
+
+//Counting Valleys
+function countingValleys(steps, path) {
+  let mountain=0
+  let valleys=0
+  let sealevel=0;
+  for(let i=0; i<path.length; i++){
+    if(steps=='U'){
+      if(sealevel===0){
+        mountain++
+      }
+      sealevel++
+    }else if(steps=='D'){
+      if(sealevel===0){
+        valleys++
+      }
+      sealevel--
+    }
+   return valleys
+  }
+}
+
+
+
+
+
+}
+
 //Socks Merchant
 function sockMerchant(n, ar) {
   let pairs = 0; //incrementing
